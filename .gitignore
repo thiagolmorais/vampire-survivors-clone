@@ -25,3 +25,6 @@ sysinfo.txt
 
 # Assets comprados que não devem subir pro Git (opcional, mas boa prática)
 # /[Aa]ssets/AssetStoreTools*
+
+# Cache e estado do Visual Studio
+.vs/
