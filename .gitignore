@@ -1,0 +1,27 @@
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+/[Bb]uilds/
+/[Ll]ogs/
+/[Uu]serSettings/
+/[Mm]emoryCaptures/
+
+# Arquivos de solução do Visual Studio / Rider gerados automaticamente
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svclog
+*.com.unity.ide.rider.flow
+
+# Crash reports
+sysinfo.txt
+
+# Assets comprados que não devem subir pro Git (opcional, mas boa prática)
+# /[Aa]ssets/AssetStoreTools*
