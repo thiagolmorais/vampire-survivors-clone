@@ -28,3 +28,7 @@ sysinfo.txt
 
 # Cache e estado do Visual Studio
 .vs/
+
+# Ignorar assets pagos
+Assets/Plugins/Sirenix/
+Assets/Sirenix/

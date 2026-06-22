@@ -1,4 +1,5 @@
 using Sirenix.OdinInspector;
+using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -9,7 +10,7 @@ public class PlayerController : MonoBehaviour
     public Rigidbody2D rig;
 
     [BoxGroup("Configurações do Dash")]
-    public float dashForce;
+    public float dashForce = 10f;
     public float dashDuration = 0.2f;
     public float dashCooldown = 3f;
 
@@ -21,6 +22,11 @@ public class PlayerController : MonoBehaviour
     public float dashTimer;
 
     private Vector2 movementDirection;
+
+    public CinemachineCamera virtualCamera;
+    public float dashZoomSize = 12f;
+
+    private float defaulZoom = 10f;
 
     private void FixedUpdate()
     {
@@ -40,6 +46,7 @@ public class PlayerController : MonoBehaviour
             if (dashTimer <= 0)
             {
                 isDashing = false; // Dash acabou e devolve o controle ao FixedUpdate
+                virtualCamera.Lens.OrthographicSize = defaulZoom; // Reset da câmera para o tamanho original
             }
         }
 
@@ -65,6 +72,8 @@ public class PlayerController : MonoBehaviour
         if (isDashReady && !isDashing && movementDirection != Vector2.zero)
         {
             isDashing = true;
+            defaulZoom = virtualCamera.Lens.OrthographicSize; // Salva o zoom atual para restaurar depois
+            virtualCamera.Lens.OrthographicSize = dashZoomSize; // Aplica o zoom out da câmera durante o dash
             isDashReady = false;
 
             // Inicia os dois cronômetros simultaneamente
