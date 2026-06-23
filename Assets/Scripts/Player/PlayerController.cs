@@ -28,6 +28,13 @@ public class PlayerController : MonoBehaviour
 
     private float defaulZoom = 10f;
 
+    public static PlayerController Intance;
+
+   private void Awake()
+    {
+        Intance = this;
+    }
+
     private void FixedUpdate()
     {
         // Máquina de estados que diz se o Player no meio de um Dash, 
